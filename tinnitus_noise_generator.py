@@ -188,7 +188,7 @@ fig, axs = plt.subplots(1, 3, figsize=(15, 4))
 
 # Plot FFT of white noise
 axs[0].plot(fft_freq_white, fft_white, color='b')
-axs[0].set_title('White Noise (FFT)', fontsize=18, fontweight='bold')
+axs[0].set_title('White Noise', fontsize=18, fontweight='bold')
 axs[0].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[0].set_ylabel('Magnitude', fontsize=18, fontweight='bold')
 axs[0].set_xlim([0, sample_rate / 2])
@@ -196,14 +196,14 @@ axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot FFT of notched noise
 axs[1].plot(fft_freq_notched, fft_notched, color='g')
-axs[1].set_title('Notched Noise (FFT)', fontsize=18, fontweight='bold')
+axs[1].set_title('Notched Noise', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Frequency (Hz)', fontsize=18, fontweight='bold')
 axs[1].set_xlim([0, sample_rate / 2])
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
 # Plot FFT of bandpass noise
 axs[2].plot(fft_freq_bandpass, fft_bandpass, color='r')
-axs[2].set_title('Band-pass Noise (FFT)', fontsize=18, fontweight='bold')
+axs[2].set_title('Band-pass Noise', fontsize=18, fontweight='bold')
 axs[2].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[2].set_xlim([0, sample_rate / 2])
 axs[2].grid(True, linestyle='--', alpha=0.3)
