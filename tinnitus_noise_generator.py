@@ -122,7 +122,7 @@ def play_sound(signal, sample_rate=44100):
 sample_rate = 44100  # 44.1 kHz sampling rate
 duration_sec = 1  # seconds of noise
 frequency_notch = 2000  # Tinnitus frequency in Hz
-notch_bandwidth = 500  # Bandwidth of the notch in Hz
+notch_bandwidth = 1000  # Bandwidth of the notch in Hz
 
 # Generate white noise and notched noise
 white_noise = generate_white_noise(duration_sec, sample_rate)
@@ -130,7 +130,7 @@ notched_noise = generate_notched_noise(frequency_notch, notch_bandwidth, duratio
 
 # Generate band-pass noise
 centre_freq = 2000  # Centre frequency of the noise band (in Hz)
-bandwidth = 500  # Bandwidth of the noise band (in Hz)
+bandwidth = 1000  # Bandwidth of the noise band (in Hz)
 bandpass_noise = generate_bandpass_noise(centre_freq, bandwidth, duration_sec)
 
 # Assuming you already generated the `bandpass_noise` signal:
@@ -150,20 +150,20 @@ fig, axs = plt.subplots(1, 3, figsize=(15, 4))
 time = np.linspace(0, duration_sec, int(sample_rate * duration_sec))
 
 # Plot white noise
-axs[0].plot(time, white_noise, color='b')
+axs[0].plot(time, white_noise, color='lightblue')
 axs[0].set_title('White Noise', fontsize=18, fontweight='bold')
 axs[0].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[0].set_ylabel('Amplitude', fontsize=18, fontweight='bold')
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot notched noise
-axs[1].plot(time, notched_noise, color='g')
+axs[1].plot(time, notched_noise, color='palegreen')
 axs[1].set_title('Notched Noise', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Time (s)', fontsize=18, fontweight='bold')
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
 # Plot bandpass noise
-axs[2].plot(time, bandpass_noise, color='r')
+axs[2].plot(time, bandpass_noise, color='indianred')
 axs[2].set_title('Band-pass Noise', fontsize=18, fontweight='bold')
 axs[2].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[2].grid(True, linestyle='--', alpha=0.3)
@@ -187,7 +187,7 @@ fft_freq_bandpass, fft_bandpass = compute_fft(bandpass_noise, sample_rate)
 fig, axs = plt.subplots(1, 3, figsize=(15, 4))
 
 # Plot FFT of white noise
-axs[0].plot(fft_freq_white, fft_white, color='b')
+axs[0].plot(fft_freq_white, fft_white, color='lightblue')
 axs[0].set_title('White Noise', fontsize=18, fontweight='bold')
 axs[0].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[0].set_ylabel('Magnitude', fontsize=18, fontweight='bold')
@@ -195,14 +195,14 @@ axs[0].set_xlim([0, sample_rate / 2])
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot FFT of notched noise
-axs[1].plot(fft_freq_notched, fft_notched, color='g')
+axs[1].plot(fft_freq_notched, fft_notched, color='palegreen')
 axs[1].set_title('Notched Noise', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Frequency (Hz)', fontsize=18, fontweight='bold')
 axs[1].set_xlim([0, sample_rate / 2])
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
 # Plot FFT of bandpass noise
-axs[2].plot(fft_freq_bandpass, fft_bandpass, color='r')
+axs[2].plot(fft_freq_bandpass, fft_bandpass, color='indianred')
 axs[2].set_title('Band-pass Noise', fontsize=18, fontweight='bold')
 axs[2].set_xlabel(' ', fontsize=18, fontweight='bold')
 axs[2].set_xlim([0, sample_rate / 2])
