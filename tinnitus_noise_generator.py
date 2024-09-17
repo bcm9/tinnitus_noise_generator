@@ -157,7 +157,7 @@ axs[0].set_ylabel('Amplitude', fontsize=18, fontweight='bold')
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot notched noise
-axs[1].plot(time, notched_noise, color='palegreen')
+axs[1].plot(time, notched_noise, color='forestgreen')
 axs[1].set_title('Notched Noise', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Time (s)', fontsize=18, fontweight='bold')
 axs[1].grid(True, linestyle='--', alpha=0.3)
@@ -195,7 +195,7 @@ axs[0].set_xlim([0, sample_rate / 2])
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot FFT of notched noise
-axs[1].plot(fft_freq_notched, fft_notched, color='palegreen')
+axs[1].plot(fft_freq_notched, fft_notched, color='forestgreen')
 axs[1].set_title('Notched Noise', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Frequency (Hz)', fontsize=18, fontweight='bold')
 axs[1].set_xlim([0, sample_rate / 2])
